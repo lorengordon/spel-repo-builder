@@ -4,6 +4,6 @@ FROM quay.io/centos/centos:stream8@sha256:969d0dba373dc01be38904cec8bd327d97286f
 
 FROM hairyhenderson/gomplate:v3.11.5
 
-FROM golang:1.21.3
+FROM golang:1.21.4
 
 FROM plus3it/tardigrade-ci:0.24.13
