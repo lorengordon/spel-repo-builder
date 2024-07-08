@@ -4,8 +4,8 @@ FROM almalinux:8@sha256:4fab18ae7257e2ef4149dcb1f8dc8201c6e8bbfc2a89f14e84849641
 
 FROM almalinux:9@sha256:9174caa563cb35879c4e696798b63dc17d518fe74a9cd347c64b3ee687dcd2f2
 
-FROM hairyhenderson/gomplate:v3.11.7
+FROM hairyhenderson/gomplate:v4.1.0
 
-FROM golang:1.22.4
+FROM golang:1.22.5
 
-FROM plus3it/tardigrade-ci:0.24.15
+FROM plus3it/tardigrade-ci:0.25.0
