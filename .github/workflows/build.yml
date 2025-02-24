@@ -84,10 +84,10 @@ jobs:
           echo "GOMPLATE_VERSION=$(make gomplate/version)" | tee -a "$GITHUB_ENV"
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@6524bf65af31da8d45b59e8c27de4bd072b392f5
+        uses: docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca
 
       - name: Build el${{ matrix.el_version }} repo
-        uses: docker/build-push-action@48aba3b46d1b1fec4febb7c5d0c644b249a11355
+        uses: docker/build-push-action@0adf9959216b96bec444f325f1e493d4aa344497
         with:
           file: Dockerfile.el${{ matrix.el_version }}
           context: .
@@ -144,7 +144,7 @@ jobs:
 
       # upload repo artifact before testing them to troubleshoot failures
       - name: Store repo as artifact
-        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1
         with:
           name: spel-repo-el${{ matrix.el_version }}
           path: .repo/el${{ matrix.el_version }}
@@ -168,7 +168,7 @@ jobs:
 
       - name: configure aws credentials
         if: github.event_name != 'pull_request'
-        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
+        uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722
         with:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.AWS_ROLE_NAME }}
           aws-region: us-east-1
